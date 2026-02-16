@@ -1,6 +1,8 @@
 package tienda;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class ListaProductos {
@@ -17,6 +19,7 @@ public class ListaProductos {
     public int tamanio(){
        return inventario.size();
     }
+    
 
     public void setInventario(List<Productos> inventario) {
         this.inventario = inventario;
@@ -31,9 +34,11 @@ public class ListaProductos {
       return inventario.get(pos);
     }
 
-    public void aniadir(Productos producto){
+    public void aniadir(String nombre, double precio, int stock){
+        Productos producto = new Productos(nombre,precio,stock);
         inventario.add(producto);
     }
+   
     
     public void vender (String nombreProducto){
         //creo un prodcuto referencia al cual voy a cogerle el nombre
