@@ -45,7 +45,7 @@ public class Tienda {
         /** vamos a refactorizar el bucle añadiendo dentro un Switch en lugar de la estructura if else que tiene
          * 
          */
-        while(true) {
+        
             System.out.println("\n--- TIENDA ---");
             System.out.println("1. Añadir producto");
             System.out.println("2. Mostrar inventario");
@@ -54,7 +54,8 @@ public class Tienda {
             System.out.print("Seleccione una opción: ");
             
             int op = sc.nextInt();
-            
+            boolean control = true;
+            while(control){
             switch (op) {
                 case 1 ->{
                     System.out.println("Introduce el nombre:");
@@ -65,83 +66,26 @@ public class Tienda {
                     int stock = sc.nextInt();
                     inventario.aniadir(nombre, precio, stock);
                 }
+
+                case 2->{
+                    System.out.println("--INVENTARIO ACTUAL--");
+                    System.out.println(inventario);
+                }
+                case 3->{
+                    System.out.println("Introduce el producto que quieres vender:");
+                    String venta = sc.next();
+                    inventario.vender(venta);
+                    System.out.println("Venta satisfactoria");
+                }
+                case 4->{
+                    control =false;
+                }
             }
-        //     if(op == 1) { 
-        //         System.out.print("Nombre del producto: ");
-        //         String nombre = sc.next();
-        //         System.out.print("Precio: ");
-        //         double precio = sc.nextDouble();
-        //         System.out.print("Stock inicial: ");
-        //         int stock = sc.nextInt();
-                
-        //         n.add(nombre);
-        //         p.add(precio);
-        //         s.add(stock);
-        //         System.out.println("Producto añadido correctamente.");
-                
-        //     } else if(op == 2) {
-        //         System.out.println("\n--- INVENTARIO ACTUAL ---");
-        //         if(n.isEmpty()) {
-        //             System.out.println("No hay productos.");
-        //         } else {
-        //             for(int i=0; i<n.size(); i++) {
-        //                 System.out.println(i + ". " + n.get(i) + " - " + p.get(i) + "€ - Stock: " + s.get(i));
-        //             }
-        //         }
-                
-        //     } else if(op == 3) {
-        //         System.out.println("\n--- VENTA ---");
-        //         System.out.print("Introduzca nombre del producto a vender: ");
-        //         String prod = sc.next();
-                
-        //         int pos = -1;
-        //         for(int i=0; i<n.size(); i++) {
-        //             if(n.get(i).equalsIgnoreCase(prod)) {
-        //                 pos = i;
-        //                 break;
-        //             }
-        //         }
-                
-        //         if(pos != -1) {
-        //             System.out.println("Producto encontrado: " + n.get(pos));
-        //             System.out.println("Precio: " + p.get(pos) + "€ | Stock: " + s.get(pos));
-        //             System.out.print("Cantidad a comprar: ");
-        //             int cant = sc.nextInt();
-                    
-        //             if(s.get(pos) >= cant) {
-        //                 double total = cant * p.get(pos);
-                        
-        //                 // Hay números fijos que se utilizan en el código
-        //                 if(total > 50) {
-        //                     System.out.println("¡Oferta! Descuento aplicado por compra superior a 50€");
-        //                     total = total * 0.90; 
-        //                 }
-                        
-        //                 s.set(pos, s.get(pos) - cant); // Actualizar stock
-        //                 System.out.println("Venta realizada. Total a pagar: " + total + "€");
-                        
-        //                 // Debería ser Singleton
-        //                 System.out.println("[LOG SYSTEM]: Venta de " + cant + "x " + n.get(pos) + " registrada.");
-        //                 if(s.get(pos) < 3) {
-        //                     System.out.println("[LOG SYSTEM]: ALERTA DE STOCK BAJO para " + n.get(pos));
-        //                 }
-                        
-        //             } else {
-        //                 System.out.println("Error: No hay suficiente stock.");
-        //             }
-        //         } else {
-        //             System.out.println("Error: Producto no encontrado.");
-        //         }
-                
-        //     } else if(op == 4) {
-        //         System.out.println("Saliendo...");
-        //         break;
-        //     } else {
-        //         System.out.println("Opción no válida.");
-        //     }
-        // }
-        // sc.close();
+              sc.close();
+        }
+       
+       
     }
     }
-}
+
 

@@ -55,7 +55,7 @@ public class ListaProductos {
                 if(this.inventario.get(i).getStock()==0){
                     this.inventario.remove(this.inventario.get(i));
                 }
-            }
+            } else{ System.out.println("Producto no encontrado");}
         }
     }
 }
