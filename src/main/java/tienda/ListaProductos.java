@@ -36,7 +36,9 @@ public class ListaProductos {
 
     public void aniadir(String nombre, double precio, int stock){
         Productos producto = new Productos(nombre,precio,stock);
-        inventario.add(producto);
+       if(inventario.add(producto)){
+        System.out.println("Producto añadido correctamente");
+       } 
     }
    
     
