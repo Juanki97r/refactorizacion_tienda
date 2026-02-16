@@ -18,16 +18,24 @@ public class Tienda {
     
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        //creo un inventario que tendra los metodos que creemos en su clase
-        //para añadir productos, ver el inventario completo, etc
+        /** El primer cambio se trata de la forma de alamacenar y gestionar los productos y el inventario
+         * tendremos una clase producto y una lista de inventario que tendran los metodos necesarios para la
+         * operarotia de la tienda. Además es mejor asi ya que permite a la tienda dividir los inventarios por tipos
+         * de producto su lo quisiera (lista de chaquetas, de pantalones, de ropa de hombre, de mujer, etc)
+         */
+
+        /**Creamos la lista y probamos que las acciones de añadir productos y vender funcinen correctamente */
         ListaProductos inventario = new ListaProductos();
-         // DATOS DE PRUEBA
-         inventario.aniadir(new Productos("Camiseta", 20.0,1));
+         
+         inventario.aniadir(new Productos("Camiseta", 20.0,2));
          inventario.aniadir(new Productos("Pantalon", 30.0,1));
          inventario.aniadir(new Productos("Chaleco", 15.0,1));
          inventario.aniadir(new Productos("blusa", 10.0,1));
          System.out.println(inventario);
-         
+         System.out.println("------------Despues de hacer una venta----------");
+         inventario.vender("Camiseta");
+         inventario.vender("blusa");
+          System.out.println(inventario);
         // while(true) {
         //     System.out.println("\n--- TIENDA ---");
         //     System.out.println("1. Añadir producto");

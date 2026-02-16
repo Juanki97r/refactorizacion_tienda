@@ -43,10 +43,10 @@ public class ListaProductos {
         
         for(int i =0; i<inventario.size(); i++){
             if ( inventario.get(i).equals(productoAVender)) {
-                productoAVender.setStock(productoAVender.getStock()-1);
+                this.inventario.get(i).setStock(this.inventario.get(i).getStock()-1);
 
-                if(productoAVender.getStock()==0){
-                    inventario.remove(productoAVender);
+                if(this.inventario.get(i).getStock()==0){
+                    this.inventario.remove(this.inventario.get(i));
                 }
             }
         }
